@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Share ke WhatsApp dengan Gambar</title>
+  <!-- Open Graph Tags untuk preview di WhatsApp -->
+  <meta property="og:title" content="Judul Postingan">
+  <meta property="og:description" content="Deskripsi singkat postingan ini.">
+  <meta property="og:image" content="https://example.com/path/to/image.jpg">
+  <meta property="og:url" content="https://example.com/nama_file.html">
+  <style>
+    .share-button {
+      padding: 10px 20px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .share-button:hover {
+      background-color: #1ebe5d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contoh Halaman Share ke WhatsApp</h1>
+  <p>Halaman ini memiliki tag Open Graph untuk preview gambar saat dibagikan ke WhatsApp.</p>
+  
+  <!-- Tombol Share -->
+  <button class="share-button" id="shareBtn">Share ke WhatsApp</button>
+  
+  <script>
+    document.getElementById('shareBtn').addEventListener('click', function() {
+      // Menggunakan URL halaman saat ini
+      var pageUrl = window.location.href;
+      var pesan = encodeURIComponent("Lihat postingan menarik ini: " + pageUrl);
+      var whatsappUrl = "https://api.whatsapp.com/send?text=" + pesan;
+      window.location.href = whatsappUrl;
+    });
+  </script>
+</body>
+</html>

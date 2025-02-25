@@ -1,45 +1,78 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Share ke WhatsApp dengan Gambar</title>
-  <!-- Open Graph Tags untuk preview di WhatsApp -->
-  <meta property="og:title" content="Judul Postingan">
-  <meta property="og:description" content="Deskripsi singkat postingan ini.">
-  <meta property="og:image" content="https://example.com/path/to/image.jpg">
-  <meta property="og:url" content="https://example.com/nama_file.html">
-  <style>
-    .share-button {
-      padding: 10px 20px;
-      background-color: #25D366;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .share-button:hover {
-      background-color: #1ebe5d;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagikan Item Langka</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Item Langka di GameKu!">
+    <meta property="og:description" content="Aku mendapatkan item legendaris! Cek di sini!">
+    <meta property="og:image" content="https://ivanchristian1602.github.io/hosting/download.jpg">
+    <meta property="og:url" content="https://gameku.com/share/item/12345">
+    <meta property="og:type" content="website">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .share-buttons a, button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 250px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button {
+            border: none;
+        }
+    </style>
 </head>
 <body>
-  <h1>Contoh Halaman Share ke WhatsApp</h1>
-  <p>Halaman ini memiliki tag Open Graph untuk preview gambar saat dibagikan ke WhatsApp.</p>
-  
-  <!-- Tombol Share -->
-  <button class="share-button" id="shareBtn">Share ke WhatsApp</button>
-  <img alt="tes" src="download.jpg">
-  <script>
-    document.getElementById('shareBtn').addEventListener('click', function() {
-      // Menggunakan URL halaman saat ini
-      var pageUrl = window.location.href;
-      var pesan = encodeURIComponent("Lihat postingan menarik ini: " + pageUrl);
-      var whatsappUrl = "https://api.whatsapp.com/send?text=" + pesan;
-      window.location.href = whatsappUrl;
-    });
-  </script>
+
+    <h1>🎁 Kamu Mendapatkan Item Langka! 🎁</h1>
+    <img src="https://ivanchristian1602.github.io/hosting/download.jpg" alt="Item Langka">
+    <p>Bagikan ke temanmu sekarang!</p>
+
+    <div class="share-buttons">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://gameku.com/share/item/12345" target="_blank">Share ke Facebook</a>
+        <a href="https://wa.me/?text=Lihat%20item%20kerennya%20di%20https://gameku.com/share/item/12345" target="_blank">Share ke WhatsApp</a>
+        <a href="https://twitter.com/intent/tweet?text=Aku%20mendapatkan%20item%20keren!&url=https://gameku.com/share/item/12345" target="_blank">Share ke Twitter</a>
+        <button id="shareBtn">Bagikan dengan Web Share API</button>
+    </div>
+
+    <script>
+        document.getElementById("shareBtn").addEventListener("click", async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: "Item Langka!",
+                        text: "Aku mendapatkan item keren ini!",
+                        url: "https://gameku.com/share/item/12345"
+                    });
+                    console.log("Berhasil dibagikan");
+                } catch (error) {
+                    console.log("Gagal berbagi", error);
+                }
+            } else {
+                alert("Fitur share tidak didukung di browser ini.");
+            }
+        });
+    </script>
 
 </body>
 </html>

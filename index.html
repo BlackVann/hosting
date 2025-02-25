@@ -6,10 +6,10 @@
     <title>Bagikan Item Langka</title>
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Item Langka di GameKu!">
-    <meta property="og:description" content="Aku mendapatkan item legendaris! Cek di sini!">
+    <meta property="og:title" content="Lihat Item Langka Ini!">
+    <meta property="og:description" content="Aku mendapatkan item keren ini di game!">
     <meta property="og:image" content="https://ivanchristian1602.github.io/hosting/download.jpg">
-    <meta property="og:url" content="https://gameku.com/share/item/12345">
+    <meta property="og:url" content="https://ivanchristian1602.github.io/hosting/">
     <meta property="og:type" content="website">
 
     <style>
@@ -24,21 +24,18 @@
             border-radius: 10px;
             margin-bottom: 10px;
         }
-        .share-buttons a, button {
+        .share-button {
             display: block;
-            margin: 10px auto;
+            margin: 20px auto;
             padding: 10px;
             width: 250px;
             text-decoration: none;
-            background-color: #007bff;
+            background-color: #25D366;
             color: white;
             border-radius: 5px;
             text-align: center;
             font-size: 16px;
             cursor: pointer;
-        }
-        button {
-            border: none;
         }
     </style>
 </head>
@@ -46,33 +43,11 @@
 
     <h1>🎁 Kamu Mendapatkan Item Langka! 🎁</h1>
     <img src="https://ivanchristian1602.github.io/hosting/download.jpg" alt="Item Langka">
-    <p>Bagikan ke temanmu sekarang!</p>
+    <p>Bagikan ke temanmu di WhatsApp!</p>
 
-    <div class="share-buttons">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://gameku.com/share/item/12345" target="_blank">Share ke Facebook</a>
-        <a href="https://wa.me/?text=Lihat%20item%20kerennya%20di%20https://gameku.com/share/item/12345" target="_blank">Share ke WhatsApp</a>
-        <a href="https://twitter.com/intent/tweet?text=Aku%20mendapatkan%20item%20keren!&url=https://gameku.com/share/item/12345" target="_blank">Share ke Twitter</a>
-        <button id="shareBtn">Bagikan dengan Web Share API</button>
-    </div>
-
-    <script>
-        document.getElementById("shareBtn").addEventListener("click", async () => {
-            if (navigator.share) {
-                try {
-                    await navigator.share({
-                        title: "Item Langka!",
-                        text: "Aku mendapatkan item keren ini!",
-                        url: "https://gameku.com/share/item/12345"
-                    });
-                    console.log("Berhasil dibagikan");
-                } catch (error) {
-                    console.log("Gagal berbagi", error);
-                }
-            } else {
-                alert("Fitur share tidak didukung di browser ini.");
-            }
-        });
-    </script>
+    <a class="share-button" href="https://wa.me/?text=Aku%20mendapatkan%20item%20keren%20ini!%20Lihat%20disini%3A%20https%3A%2F%2Fivanchristian1602.github.io%2Fhosting%2F" target="_blank">
+        Bagikan ke WhatsApp
+    </a>
 
 </body>
 </html>
